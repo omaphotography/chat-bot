@@ -58,6 +58,25 @@ router.post("/", async (req, res) => {
         "🔥 Gaming Laptop Recommendations:\n\n• ASUS ROG\n• Alienware\n• HP Omen\n• Lenovo Legion\n\nPrice starts from $900. Would you like budget or premium options?";
 
     }
+    // premium
+    else if (
+      text.includes("premium laptop") ||
+      text.includes("premium")
+    ) {
+
+      reply =
+        "💎 Premium Laptop Recommendations:\n\n• MacBook Pro\n• Dell XPS\n• Lenovo ThinkPad\n\nSleek design and powerful performance.";
+
+    }
+    // budget
+    else if (
+      text.includes("budget laptop") ||
+      text.includes("budget")
+    ) {
+
+      reply =
+        "� Budget Laptop Recommendations:\n\n• HP Pavilion\n• Lenovo IdeaPad\n• Dell Inspiron\n\nAffordable and perfect for school work.";
+    }
 
     // STUDENT LAPTOP
     else if (
