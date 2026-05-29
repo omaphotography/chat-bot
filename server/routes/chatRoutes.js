@@ -2,88 +2,106 @@ const express = require("express");
 
 const router = express.Router();
 
-const OpenAI =
-  require("openai");
+router.post("/", async (req, res) => {
 
-const openai =
-  new OpenAI({
-    apiKey:
-      process.env.OPENAI_API_KEY,
-  });
+  try {
 
-router.post(
-  "/",
-  async (req, res) => {
+    const { message } = req.body;
 
-    try {
+    const text =
+      message.toLowerCase();
 
-      const { message } =
-        req.body;
+    let reply =
+      "I can help you with shopping, laptops, phones, orders, delivery and payments.";
 
-      const completion =
-        await openai.chat.completions.create({
+    // LAPTOP
+    if (
+      text.includes("laptop")
+    ) {
 
-          model:
-            "gpt-3.5-turbo",
-
-          messages: [
-
-            {
-              role: "system",
-
-              content:
-                `
-You are ShopBot AI.
-
-You are a smart ecommerce assistant.
-
-Help users with:
-- product recommendations
-- shopping advice
-- laptops
-- phones
-- gaming
-- orders
-- delivery
-- payments
-- refunds
-
-Keep responses short, friendly, and human.
-`,
-            },
-
-            {
-              role: "user",
-
-              content:
-                message,
-            },
-
-          ],
-
-        });
-
-      const reply =
-        completion.choices[0]
-          .message.content;
-
-      res.json({
-        reply,
-      });
-
-    } catch (error) {
-
-      console.log(error);
-
-      res.status(500).json({
-        reply:
-          "⚠️ AI server error.",
-      });
+      reply =
+        "We have gaming laptops, student laptops and business laptops available.";
 
     }
 
-  }
-);
+    // PHONE
+    else if (
+      text.includes("phone") ||
+      text.includes("iphone") ||
+      text.includes("android")
+    ) {
 
-module.exports =
-  router;
+      reply =
+        "We have iPhones, Samsung devices and Android phones available.";
+
+    }
+
+    // PRICE
+    else if (
+      text.includes("price")
+    ) {
+
+      reply =
+        "Our products are affordable and available in different price ranges.";
+
+    }
+
+    // DELIVERY
+    else if (
+      text.includes("delivery")
+    ) {
+
+      reply =
+        "Delivery takes about 2 to 5 business days.";
+
+    }
+
+    // PAYMENT
+    else if (
+      text.includes("payment")
+    ) {
+
+      reply =
+        "We accept card payments and online transfers.";
+
+    }
+
+    // ORDER
+    else if (
+      text.includes("order")
+    ) {
+
+      reply =
+        "You can place your order directly from the cart page.";
+
+    }
+
+    // HELLO
+    else if (
+      text.includes("hello") ||
+      text.includes("hi")
+    ) {
+
+      reply =
+        "Hello 👋 Welcome to ShopBot AI. How can I help you today?";
+
+    }
+
+    res.json({
+      reply,
+    });
+
+  } catch (error) {
+
+    console.log(error);
+
+    res.status(500).json({
+      reply:
+        "Server error occurred.",
+    });
+
+  }
+
+});
+
+module.exports = router;
