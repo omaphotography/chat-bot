@@ -26,29 +26,60 @@ router.post("/", async (req, res) => {
 
     }
 
-    // BUYING PRODUCTS
+    // BUY
     else if (
       text.includes("buy") ||
       text.includes("shop")
     ) {
 
       reply =
-        "Great 😊 What product are you looking for? We have laptops, phones, gaming products and accessories.";
+        "Great 😊 What product are you looking for?";
 
     }
 
-    // SUGGESTION
+    // SUGGEST
     else if (
       text.includes("suggest") ||
       text.includes("recommend")
     ) {
 
       reply =
-        "Sure 😊 You can choose from:\n\n• Laptops\n• Phones\n• Gaming Products\n• Smart Watches\n• Headphones\n• Accessories\n\nTell me what you need.";
+        "Sure 😊 We have:\n\n• Laptops\n• Phones\n• Gaming Products\n• Accessories";
 
     }
 
-    // LAPTOPS
+    // GAMING LAPTOPS
+    else if (
+      text.includes("gaming laptop") ||
+      text.includes("gaming")
+    ) {
+
+      reply =
+        "🔥 Gaming Laptop Recommendations:\n\n• ASUS ROG\n• Alienware\n• HP Omen\n• Lenovo Legion\n\nPrice starts from $900. Would you like budget or premium options?";
+
+    }
+
+    // STUDENT LAPTOP
+    else if (
+      text.includes("student laptop")
+    ) {
+
+      reply =
+        "🎓 Student Laptop Options:\n\n• HP Pavilion\n• Lenovo IdeaPad\n• Dell Inspiron\n\nAffordable and perfect for school work.";
+
+    }
+
+    // BUSINESS LAPTOP
+    else if (
+      text.includes("business laptop")
+    ) {
+
+      reply =
+        "💼 Business Laptop Options:\n\n• MacBook Pro\n• Dell XPS\n• Lenovo ThinkPad\n\nFast and reliable for office work.";
+
+    }
+
+    // LAPTOP
     else if (
       text.includes("laptop")
     ) {
@@ -58,25 +89,15 @@ router.post("/", async (req, res) => {
 
     }
 
-    // GAMING
+    // PHONES
     else if (
-      text.includes("gaming")
+      text.includes("phone") ||
+      text.includes("iphone") ||
+      text.includes("android")
     ) {
 
       reply =
-        "Our gaming products include:\n\n• Gaming Laptops\n• Gaming Keyboards\n• Gaming Mouse\n• Headsets\n• PlayStation Accessories\n\nYou can add any item to your cart and checkout easily 🎮";
-
-    }
-
-    // HOW TO BUY
-    else if (
-      text.includes("how can i buy") ||
-      text.includes("how do i buy") ||
-      text.includes("purchase")
-    ) {
-
-      reply =
-        "To buy a product:\n\n1️⃣ Open the Products page\n2️⃣ Click 'Add To Cart'\n3️⃣ Open your cart\n4️⃣ Click Checkout\n5️⃣ Complete your payment\n\nYour order will be processed immediately 😊";
+        "📱 Available Phones:\n\n• iPhone\n• Samsung Galaxy\n• Tecno\n• Infinix\n• Redmi";
 
     }
 
@@ -86,7 +107,7 @@ router.post("/", async (req, res) => {
     ) {
 
       reply =
-        "Delivery usually takes 2 to 5 business days depending on your location 🚚";
+        "🚚 Delivery takes 2 to 5 business days.";
 
     }
 
@@ -97,18 +118,28 @@ router.post("/", async (req, res) => {
     ) {
 
       reply =
-        "We accept card payments and online bank transfers securely 💳";
+        "💳 We accept cards and bank transfers.";
+
+    }
+
+    // HOW TO BUY
+    else if (
+      text.includes("how can i buy") ||
+      text.includes("checkout")
+    ) {
+
+      reply =
+        "🛒 To buy:\n\n1️⃣ Add product to cart\n2️⃣ Open cart\n3️⃣ Click checkout\n4️⃣ Complete payment";
 
     }
 
     // THANK YOU
     else if (
-      text.includes("thanks") ||
-      text.includes("thank you")
+      text.includes("thank")
     ) {
 
       reply =
-        "You're welcome 😊 Happy shopping with ShopBot AI.";
+        "You're welcome 😊";
 
     }
 
