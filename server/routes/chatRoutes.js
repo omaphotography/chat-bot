@@ -77,7 +77,16 @@ router.post("/", async (req, res) => {
       reply =
         "� Budget Laptop Recommendations:\n\n• HP Pavilion\n• Lenovo IdeaPad\n• Dell Inspiron\n\nAffordable and perfect for school work.";
     }
+// get
+    else if (
+      text.includes("how can i buy") ||
+      text.includes("checkout")
+      text.includes("how can i get") ||
+    ) {
 
+      reply =
+        "🛒 To buy:\n\n1️⃣ Add product to cart\n2️⃣ Open cart\n3️⃣ Click checkout\n4️⃣ wait for delivery";
+    }
     // STUDENT LAPTOP
     else if (
       text.includes("student laptop")
