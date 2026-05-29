@@ -16,49 +16,45 @@ router.post("/", async (req, res) => {
 
     // GREETING
     if (
-      text === "hi" ||
-      text === "hello" ||
-      text === "hey"
+      text.includes("hello") ||
+      text.includes("hi") ||
+      text.includes("hey")
     ) {
 
       reply =
-        "Hello 👋 Welcome to ShopBot AI. How can I help you today?";
+        "Hello 👋 Welcome to ShopBot AI. What would you like to buy today?";
 
     }
 
-    // BUYING / SUGGESTIONS
+    // BUYING PRODUCTS
     else if (
       text.includes("buy") ||
-      text.includes("shop") ||
-      text.includes("suggest") ||
-      text.includes("recommend") ||
-      text.includes("which one should i buy")
+      text.includes("shop")
     ) {
 
       reply =
-        "Sure 😊 What are you interested in?\n\n• Laptops\n• Phones\n• Gaming Products\n• Smart Watches\n• Headphones\n• Accessories\n\nTell me what you need and your budget.";
+        "Great 😊 What product are you looking for? We have laptops, phones, gaming products and accessories.";
 
     }
 
-    // LAPTOP
+    // SUGGESTION
+    else if (
+      text.includes("suggest") ||
+      text.includes("recommend")
+    ) {
+
+      reply =
+        "Sure 😊 You can choose from:\n\n• Laptops\n• Phones\n• Gaming Products\n• Smart Watches\n• Headphones\n• Accessories\n\nTell me what you need.";
+
+    }
+
+    // LAPTOPS
     else if (
       text.includes("laptop")
     ) {
 
       reply =
-        "Here are some good laptop options:\n\n• Student Laptop — affordable and good for school work\n• Gaming Laptop — high performance for gaming and editing\n• Business Laptop — fast and perfect for office work\n\nTell me your budget so I can suggest the best one 😊";
-
-    }
-
-    // PHONE
-    else if (
-      text.includes("phone") ||
-      text.includes("iphone") ||
-      text.includes("android")
-    ) {
-
-      reply =
-        "Popular phones available:\n\n• iPhone 15 Pro\n• Samsung Galaxy S24\n• Redmi Note Series\n• Tecno Camon\n\nWhat type do you want?\n1. Budget phone\n2. Camera phone\n3. Gaming phone\n4. Premium phone";
+        "We have:\n\n• Gaming Laptops\n• Student Laptops\n• Business Laptops\n\nWhich type do you want?";
 
     }
 
@@ -68,7 +64,19 @@ router.post("/", async (req, res) => {
     ) {
 
       reply =
-        "We have gaming laptops, PlayStation accessories, gaming keyboards, gaming mice and headsets available 🎮";
+        "Our gaming products include:\n\n• Gaming Laptops\n• Gaming Keyboards\n• Gaming Mouse\n• Headsets\n• PlayStation Accessories\n\nYou can add any item to your cart and checkout easily 🎮";
+
+    }
+
+    // HOW TO BUY
+    else if (
+      text.includes("how can i buy") ||
+      text.includes("how do i buy") ||
+      text.includes("purchase")
+    ) {
+
+      reply =
+        "To buy a product:\n\n1️⃣ Open the Products page\n2️⃣ Click 'Add To Cart'\n3️⃣ Open your cart\n4️⃣ Click Checkout\n5️⃣ Complete your payment\n\nYour order will be processed immediately 😊";
 
     }
 
@@ -89,17 +97,7 @@ router.post("/", async (req, res) => {
     ) {
 
       reply =
-        "We accept card payments, bank transfers and online payments securely 💳";
-
-    }
-
-    // ORDER
-    else if (
-      text.includes("order")
-    ) {
-
-      reply =
-        "You can place your order directly from the cart page after adding products 🛒";
+        "We accept card payments and online bank transfers securely 💳";
 
     }
 
