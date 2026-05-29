@@ -12,10 +12,32 @@ router.post("/", async (req, res) => {
       message.toLowerCase();
 
     let reply =
-      "I can help you with shopping, laptops, phones, orders, delivery and payments.";
+      "I can help you with shopping, laptops, phones, delivery and orders.";
+
+    // GREETING
+    if (
+      text === "hi" ||
+      text === "hello"
+    ) {
+
+      reply =
+        "Hello 👋 Welcome to ShopBot AI. What would you like to buy today?";
+
+    }
+
+    // BUYING
+    else if (
+      text.includes("buy") ||
+      text.includes("shop")
+    ) {
+
+      reply =
+        "Great 😊 What product are you looking for? We have laptops, phones, gaming products and accessories.";
+
+    }
 
     // LAPTOP
-    if (
+    else if (
       text.includes("laptop")
     ) {
 
@@ -32,17 +54,7 @@ router.post("/", async (req, res) => {
     ) {
 
       reply =
-        "We have iPhones, Samsung devices and Android phones available.";
-
-    }
-
-    // PRICE
-    else if (
-      text.includes("price")
-    ) {
-
-      reply =
-        "Our products are affordable and available in different price ranges.";
+        "We have iPhones, Samsung phones and Android devices available.";
 
     }
 
@@ -73,17 +85,6 @@ router.post("/", async (req, res) => {
 
       reply =
         "You can place your order directly from the cart page.";
-
-    }
-
-    // HELLO
-    else if (
-      text.includes("hello") ||
-      text.includes("hi")
-    ) {
-
-      reply =
-        "Hello 👋 Welcome to ShopBot AI. How can I help you today?";
 
     }
 
