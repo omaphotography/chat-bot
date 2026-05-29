@@ -86,7 +86,7 @@ router.post("/", async (req, res) => {
     ) {
 
       reply =
-        "🛒 To buy:\n\n1️⃣ Add product to cart\n2️⃣ Open cart\n3️⃣ Click checkout\n4️⃣ wait for delivery";
+        "🛒 To buy:\n\n1️⃣ Add product to cart\n2️⃣ Open cart\n3️⃣ Click checkout\n4️⃣ place order and wait for delivery";
     }
     // STUDENT LAPTOP
     else if (
