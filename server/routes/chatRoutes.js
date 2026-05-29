@@ -79,9 +79,9 @@ router.post("/", async (req, res) => {
     }
 // get
     else if (
-      text.includes("how can i buy") ||
-      text.includes("checkout")
-      text.includes("how can i get") ||
+      text.includes("how can i get it") ||
+      text.includes("buy it")
+      
     ) {
 
       reply =
