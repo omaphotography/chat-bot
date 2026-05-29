@@ -77,10 +77,11 @@ router.post("/", async (req, res) => {
       reply =
         "� Budget Laptop Recommendations:\n\n• HP Pavilion\n• Lenovo IdeaPad\n• Dell Inspiron\n\nAffordable and perfect for school work.";
     }
+
 // get
     else if (
-      text.includes("how can i get it") ||
-      text.includes("buy it")
+      text.includes("how can i buy it") ||
+      text.includes("get it")
       
     ) {
 
