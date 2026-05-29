@@ -18,18 +18,28 @@ const orderRoutes =
 
 const app = express();
 
-app.use(cors());
 
+// CORS
+app.use(
+  cors({
+    origin: "*",
+  })
+);
+
+
+// BODY PARSER
 app.use(express.json());
 
-// HOME
+
+// HOME ROUTE
 app.get("/", (req, res) => {
 
   res.send(
-    "ShopBot API Running..."
+    "✅ ShopBot API Running..."
   );
 
 });
+
 
 // PRODUCT ROUTES
 app.use(
@@ -37,11 +47,13 @@ app.use(
   productRoutes
 );
 
+
 // CHATBOT ROUTES
 app.use(
   "/api/chat",
   chatRoutes
 );
+
 
 // AUTH ROUTES
 app.use(
@@ -49,19 +61,37 @@ app.use(
   authRoutes
 );
 
+
 // ORDER ROUTES
 app.use(
   "/api/orders",
   orderRoutes
 );
 
-const PORT =
-  process.env.PORT || 5000;
 
+// ERROR HANDLER
+app.use((err, req, res, next) => {
+
+  console.log(err);
+
+  res.status(500).json({
+    error:
+      "Internal Server Error",
+  });
+
+});
+
+
+// PORT
+const PORT =
+  process.env.PORT || 10000;
+
+
+// START SERVER
 app.listen(PORT, () => {
 
   console.log(
-    `Server running on port ${PORT}`
+    `✅ Server running on port ${PORT}`
   );
 
 });

@@ -62,7 +62,7 @@ function ChatWidget() {
 
         const response =
           await axios.post(
-            "http://localhost:5000/api/chat",
+          "https://chat-bot-tiy2.onrender.com/api/chat",
             {
               message:
                 currentMessage,
